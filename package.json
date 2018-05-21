@@ -1,0 +1,19 @@
+{
+  "name": "one-more",
+  "version": "1.0.0",
+  "description": "A game driven by social interaction",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benz2012/one-more.git"
+  },
+  "author": "Ben Zenker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benz2012/one-more/issues"
+  },
+  "homepage": "https://github.com/benz2012/one-more#readme"
+}
