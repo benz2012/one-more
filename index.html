@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>One More</title>
+    <meta name="description" content="A game driven by social interaction">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      h3 { padding: 5px; color: white; background-color: rgb(111, 57, 187); font-weight: lighter; }
+      button {
+        padding: 7px 25px; display: inline; border: none; color: #fff; margin: 5px;
+        background: #777; cursor: pointer; border-radius: 3px; font-size: 16px;
+      }
+      button:disabled {
+        background-color: #dddddd; color: #9f9f9f; cursor: not-allowed;
+      }
+    </style>
+
+  </head>
+  <body>
+    <h3>Material: <span id="material"></span></h3>
+    <h3>Health: <span id="health"></span></h3>
+
+    <button id="dig">Dig</button>
+    <button id="heal">Heal</button>
+    <button id="shoot">Shoot</button>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+      $(function () {
+        var socket = io();
+        $('#dig').on('click', function() { socket.emit('dig'); return false; });
+        $('#heal').on('click', function() { socket.emit('heal'); return false; });
+        $('#shoot').on('click', function() { socket.emit('shoot'); return false; });
+
+        socket.on('material', function(val) {
+          $('#material').text(val);
+          if (val === 0) {
+            $('#heal').prop("disabled", true);
+          } else {
+            $('#heal').prop("disabled", false);
+          }
+        });
+        socket.on('health', function(val) { $('#health').text(val); });
+      });
+    </script>
+  </body>
+</html>

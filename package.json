@@ -4,7 +4,8 @@
   "description": "A game driven by social interaction",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/benz2012/one-more/issues"
   },
-  "homepage": "https://github.com/benz2012/one-more#readme"
+  "homepage": "https://github.com/benz2012/one-more#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "socket.io": "^2.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.4"
+  }
 }
